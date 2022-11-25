@@ -1,0 +1,7 @@
+-Vous devez :
+-insérer le fichier auth.css dans le fichier headerAuth.html, dans le dossier vue
+
+	
+-implementer le back de l'item MonCompte permettant de mettre à jour les informations de l'utilisateur en bdd:
+	-controller validMonCompteController.php
+	-vue vueValidMoncompte.php
