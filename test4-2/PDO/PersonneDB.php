@@ -191,7 +191,20 @@ public function update(Personne $p)
 public function authentification($login,$pwd){
 	//on crytpe le pwd en md5 pour le comparer avec celui présent en bdd
 	$pwdcrypte=md5($pwd);
-	// TODO vérifier que le login et le pwd correspondent à ceux présent en bdd  
+	//    $pwdcrypte= password_hash($pwd, PASSWORD_BCRYPT);
+	$query = 'SELECT id,login FROM personne  WHERE login like  :l  and pwd like :p';
+	$q = $this->db->prepare($query);
+	$q->bindValue(':l',$login);		
+	$q->bindValue(':p',$pwdcrypte);
+	$q->execute();
+	
+	$arrAll = $q->fetch(PDO::FETCH_ASSOC);
+	
+
+
+	
+	$q->closeCursor();
+	$q = NULL;
 	
 	//retour du resultat
 	return $arrAll;

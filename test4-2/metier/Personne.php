@@ -23,6 +23,8 @@ class Personne{
     private string $login;
     /** Email **/
     private string $pwd;
+	/** Adresse */
+	private Adresse $adresse;
 
 
 	public function __construct(string $n,string $p,DateTime $d,$t,$e,$l,$pw){
@@ -129,4 +131,24 @@ class Personne{
          .$this->getPwd().']';
 
 }
+
+	/**
+	 * Get the value of adresse
+	 */ 
+	public function getAdresse()
+	{
+		return $this->adresse;
+	}
+
+	/**
+	 * Set the value of adresse
+	 *
+	 * @return  self
+	 */ 
+	public function setAdresse(Adresse $adresse)
+	{
+		$this->adresse = $adresse;
+
+		return $this;
+	}
 }
