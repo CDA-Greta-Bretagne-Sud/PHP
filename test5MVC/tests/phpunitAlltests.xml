@@ -1,0 +1,13 @@
+<phpunit>
+<filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">modele/metier</directory>
+            <directory suffix=".php">modele/DAO</directory>
+        </whitelist>
+    </filter>
+  <testsuites>
+    <testsuite name="AllTests">
+      <directory>.</directory>
+    </testsuite>
+  </testsuites>
+</phpunit>
