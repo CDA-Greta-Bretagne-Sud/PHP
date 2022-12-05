@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<title>MVC-Reservation</title>
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<!--  style css du site -->
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<link rel="stylesheet" type="text/css" href="js/jeasyui/themes/default/easyui.css">  
+<link rel="stylesheet" type="text/css" href="js/jeasyui/themes/mobile.css">  
+<link rel="stylesheet" type="text/css" href="js/jeasyui/themes/icon.css">  
+<script type="text/javascript" src="js/jeasyui/jquery.min.js"></script>  
+<script type="text/javascript" src="js/jeasyui/jquery.easyui.min.js"></script> 
+<script type="text/javascript" src="js/jeasyui/jquery.easyui.mobile.js"></script> 
+
+
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script LANGUAGE="javascript">
+ $(document).ready(function() {
+  
+      $(".verif_form_livre").submit(function(){  
+
+
+  $.post($(this).attr("action"), $(this).serialize(), function(data){
+	  var $e = $("#messagee");
+      // traitement  exécuter une fois le formulaire posté.
+      //data est sous la forme: insert (voir verifController.php)
+      var ok=data;
+
+      if(ok=="insert"){
+       var  msg=" <p style='color:red'>Le livre "+document.getElementById("nom").value+" de "+document.getElementById("auteur").value +" est inséré en BDD !</p>";
+				document.getElementById("msg").innerHTML= msg; 
+        document.getElementById("nom").value=""; 
+        document.getElementById("auteur").value=""; 
+        document.getElementById("edition").value=""; 
+        document.getElementById("info").value=""; 
+     
+      }
+      else{
+  
+	 $e.text(data).show();
+  }
+  });
+  return false;
+
+ 
+});
+$('#dg').datagrid({
+				data: data
+			});
+
+
+});
+
+</script> 
+</head>
+<body>
