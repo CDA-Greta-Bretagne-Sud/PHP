@@ -29,7 +29,7 @@ class vueAjoutLivre extends Vue {
         echo '</div>';
         echo '</div>';
 
-        echo '<button class="btn btn-primary" type="submit">Ajouter</button>';
+        echo '<button class="btn btn-primary" id="ajouter" type="submit">Ajouter</button>';
         echo "</form>"; 
 
         echo '</div>';

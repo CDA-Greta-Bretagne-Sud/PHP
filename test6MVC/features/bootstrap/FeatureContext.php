@@ -43,7 +43,7 @@ class FeatureContext extends MinkContext
      */
     public function iAmOnTheAuthentificationPage()
     {
-        $this->driver->get('http://127.0.0.1/test5');
+        $this->driver->get('http://127.0.0.1/test6MVC');
     }
 
     /**
@@ -82,7 +82,78 @@ class FeatureContext extends MinkContext
         );
 
         // Make sure to always call quit() at the end to terminate the browser session
-        $this->driver->quit();
+       // $this->driver->quit();
+    }
+     /**
+     * @Given I am on the ajoutLivre page
+     */
+    public function iAmOnTheAjoutLivrePage()
+    {
+        //wait to load the web page
+        $this->driver->wait(10, 1000)->until(WebDriverExpectedCondition::presenceOfElementLocated(WebDriverBy::linktext("Ajax")));
+
+        $this->driver->findElement(WebDriverBy::xpath("//html/body/div[1]/nav/ul/li[2]/a"))->click();
     }
 
+    /**
+     * @Given /I put Nom as "(?P<nom>[^"]*)"/
+     */
+    public function iPutNomPage($nom)
+    {
+        $this->driver->findElement(WebDriverBy::id('nom'))
+        ->sendKeys($nom);
+    }
+     /**
+     * @Given /I put Auteur as "(?P<auteur>[^"]*)"/
+     */
+    public function iPutAuteurPage($auteur)
+    {
+        $this->driver->findElement(WebDriverBy::id('auteur'))
+        ->sendKeys($auteur);
+    }
+    /**
+     * @Given /I put Edition as "(?P<edition>[^"]*)"/
+     */
+    public function iPutEditionPage($edition)
+    {
+        $this->driver->findElement(WebDriverBy::id('edition'))
+        ->sendKeys($edition);
+    }
+    /**
+     * @Given /I put Information as "(?P<information>[^"]*)"/
+     */
+    public function iPutInformationPage($information)
+    {
+        $this->driver->findElement(WebDriverBy::id('info'))
+        ->sendKeys($information);
+    }
+     /**
+     * @When I submit the form ajoutLivre
+     */
+    public function iSubmitTheFormAjoutLivre()
+    {
+
+        $this->driver->findElement(WebDriverBy::id('ajouter'))
+            ->submit();
+    }
+    /**
+     * @Then I should see AjoutLivre
+     */
+    public function iShouldSeeAjoutLivre()
+    {
+        //wait to load the web page
+       // $this->driver->wait(10, 1000)->until(WebDriverExpectedCondition::presenceOfElementLocated(WebDriverBy::linktext("Ajax")));
+
+        
+
+
+
+      $res= $this->driver->findElement(WebDriverBy::xpath("//html/body/div[1]/div/div/div[2]/p"))->getText();
+      echo "res=".$res;
+      if($res!="Le livre Les miserables de Victor Hugo est inséré en BDD !"){
+            throw new Exception();
+      }
+  
+        $this->driver->quit();
+    }
 }
