@@ -1,0 +1,17 @@
+{
+    "name": "cda/sql-request",
+    "autoload": {
+        "psr-4": {
+            "Cda\\SqlRequest\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "taiHen56",
+            "email": "74204117+taiHen56@users.noreply.github.com"
+        }
+    ],
+    "require": {
+        "curl/curl": "^2.4"
+    }
+}
