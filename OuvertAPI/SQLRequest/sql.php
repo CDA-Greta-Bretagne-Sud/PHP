@@ -27,7 +27,7 @@ if (isset($_GET['query']) && $_GET['query'] != '') {
     // 4. Set custom headers for RapidAPI Auth and Content-Type header
     curl_setopt($curl, CURLOPT_HTTPHEADER, [
         'Content-Type: application/json',
-        'Authorization: Bearer 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',
+        'Authorization: Bearer [VOTRE CLE API]',
     ]);
 
     // Execute cURL request with all previous settings
