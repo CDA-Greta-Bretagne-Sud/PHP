@@ -1,0 +1,19 @@
+{
+    "name": "damie/ai",
+    "autoload": {
+        "psr-4": {
+            "Damie\\Ai\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Damien MIREMONT",
+            "email": "damien.miremont@gmail.com"
+        }
+    ],
+    "require": {
+        "php-curl-class/php-curl-class": "^9.11",
+        "orhanerday/open-ai": "^3.2",
+        "vlucas/phpdotenv": "^5.5"
+    }
+}
